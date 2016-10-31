@@ -6,6 +6,8 @@
 	<settings>
 		<!-- 开启驼峰自动映射 -->
 		<setting name="mapUnderscoreToCamelCase" value="true" />
+<!-- 		<setting name="defaultExecutorType" value="REUSE" /> -->
+		
 	</settings>
 	
 	<plugins>

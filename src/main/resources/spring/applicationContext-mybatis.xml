@@ -67,6 +67,7 @@
 		<tx:attributes>
 			<tx:method name="refresh"/>
 			<tx:method name="update" />
+			<tx:method name="add*" />
 			<tx:method name="*" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
