@@ -20,4 +20,16 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 
+	@Override
+	public boolean check(UserEntity userEntity) {
+		UserEntity selectOne = this.userMapper.selectOne(userEntity);
+		return selectOne==null?false:true;
+	}
+
+	@Override
+	public UserEntity getUserByUsername(String username) {
+		return this.userMapper.selectOne(new UserEntity(null, username, null, null));
+	}
+
+
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/base.jsp"%>
+<%@include file="../base.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,7 +60,7 @@
     </form>
 
 
-    <a href="login.html" class="text-center">已经有账号？</a>
+    <a href="${webRoot}/pages/login.jsp" class="text-center">已经有账号？</a>
   </div>
   <!-- /.form-box -->
 </div>
@@ -74,18 +74,7 @@
 <script src="${webRoot}/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
-	$("#submit").unbind("click").click(function(event){
-		event.preventDefault();
-		var param = {"",""}
-		
-		$.ajax({
-			method:post,
-			url:${webRoot}/userController/add,
-			
-		});
-		return true;
-	});
-	  
+	$("")
 	$('input').iCheck({
 	  checkboxClass: 'icheckbox_square-blue',
 	  radioClass: 'iradio_square-blue',

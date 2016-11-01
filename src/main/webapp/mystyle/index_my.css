@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+.user-panel>.info {
+    padding: 15px 5px 5px 25px !important;
+}

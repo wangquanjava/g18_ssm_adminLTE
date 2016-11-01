@@ -40,5 +40,15 @@ public class UserEntity {
 	public void setRole(Integer role) {
 		this.role = role;
 	}
+	public UserEntity(Integer id, String username, String password, Integer role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+	public UserEntity() {
+		super();
+	}
 	
 }
