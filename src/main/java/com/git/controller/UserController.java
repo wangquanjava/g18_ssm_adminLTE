@@ -45,13 +45,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "add",method=RequestMethod.POST)
-	public String add(UserEntity userEntity,HttpServletRequest request){
+	public String add(UserEntity userEntity,HttpServletRequest request) throws Exception{
 		try {
+			this.userService.add(userEntity);
 			request.getSession().setAttribute("username", userEntity.getUsername());
 			return "redirect:/pageController/index";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "";
+			throw e;
 		}
 	}
 	
