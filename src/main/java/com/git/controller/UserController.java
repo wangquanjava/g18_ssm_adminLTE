@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.git.domain.AjaxJson;
 import com.git.domain.UserEntity;
+import com.git.exception.BusinessExceptionResolver;
 import com.git.service.UserService;
 
 @Controller
@@ -22,19 +23,13 @@ public class UserController {
 	
 	@RequestMapping(value = "check",method=RequestMethod.POST)
 	public String check(UserEntity userEntity,Model model,HttpServletRequest request){
-		try {
-			boolean success = this.userService.check(userEntity);
-			if (success) {
-				request.getSession().setAttribute("username", userEntity.getUsername());
-				return "redirect:/pageController/index";
-			}else{
-				model.addAttribute("msg","用户名或密码错误");
-				return "auth/login";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("msg","服务器出现错误");
-			return "";
+		boolean success = this.userService.check(userEntity);
+		if (success) {
+			request.getSession().setAttribute("id", userEntity.getId());
+			return "redirect:/pageController/index";
+		}else{
+			model.addAttribute("msg","用户名或密码错误");
+			return "auth/login";
 		}
 	}
 	
@@ -46,14 +41,15 @@ public class UserController {
 	
 	@RequestMapping(value = "add",method=RequestMethod.POST)
 	public String add(UserEntity userEntity,HttpServletRequest request) throws Exception{
-		try {
-			this.userService.add(userEntity);
-			request.getSession().setAttribute("username", userEntity.getUsername());
-			return "redirect:/pageController/index";
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
+		this.userService.add(userEntity);
+		request.getSession().setAttribute("id", userEntity.getId());
+		return "redirect:/pageController/index";
+	}
+	
+	@RequestMapping(value = "update",method=RequestMethod.POST)
+	public String update(UserEntity userEntity,HttpServletRequest request) throws Exception{
+		this.userService.update(userEntity);
+		return "redirect:/pageController/profile";
 	}
 	
 }

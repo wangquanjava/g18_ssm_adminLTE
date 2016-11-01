@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="..//base.jsp"%>
+<%@include file="../base.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,9 +12,9 @@
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="${webRoot}/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="${webRoot}/cloudflare/font-awesome.min.css">
+  <link rel="stylesheet" href="${webRoot}/plugins/cloudflare/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="${webRoot}/cloudflare/ionicons.min.css">
+  <link rel="stylesheet" href="${webRoot}/plugins/cloudflare/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="${webRoot}/dist/css/AdminLTE.min.css">
   <!-- iCheck -->

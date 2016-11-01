@@ -23,7 +23,6 @@
 	</mvc:annotation-driven>
 	<!-- 静态资源 -->
 	<mvc:default-servlet-handler/>
-	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**"/>
 	
 	<!-- 配置扫描controller -->
 	<context:component-scan base-package="com.git.controller" />
@@ -55,4 +54,7 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- 全局异常类 -->
+	<bean class="com.git.exception.BusinessExceptionResolver" />
 </beans>

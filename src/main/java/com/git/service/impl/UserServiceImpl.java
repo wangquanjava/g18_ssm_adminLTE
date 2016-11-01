@@ -31,5 +31,16 @@ public class UserServiceImpl implements UserService{
 		return this.userMapper.selectOne(new UserEntity(null, username, null, null));
 	}
 
+	@Override
+	public UserEntity getUserById(Integer id) {
+		UserEntity userEntity = this.userMapper.selectByPrimaryKey(id);
+		return userEntity;
+	}
+
+	@Override
+	public void update(UserEntity userEntity) {
+		this.userMapper.updateByPrimaryKeySelective(userEntity);
+	}
+
 
 }

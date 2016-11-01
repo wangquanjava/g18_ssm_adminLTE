@@ -16,6 +16,7 @@ public class UserEntity {
 	private String username;
 	private String password;
 	private Integer role;
+	private String email;
 	public Integer getId() {
 		return id;
 	}
@@ -50,5 +51,10 @@ public class UserEntity {
 	public UserEntity() {
 		super();
 	}
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

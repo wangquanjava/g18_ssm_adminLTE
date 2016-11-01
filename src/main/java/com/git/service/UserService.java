@@ -10,4 +10,8 @@ public interface UserService {
 
 	UserEntity getUserByUsername(String username);
 
+	UserEntity getUserById(Integer attribute);
+
+	void update(UserEntity userEntity);
+
 }

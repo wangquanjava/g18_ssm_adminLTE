@@ -1,6 +1,5 @@
 package com.git.controller;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +39,14 @@ public class PageController {
 		UserEntity userEntity = this.userService.getUserByUsername((String) request.getSession().getAttribute("username"));
 		model.addAttribute("userEntity", userEntity);
 		return "index";
+	}
+	/**
+	 * 进入个人页面
+	 */
+	@RequestMapping("/profile")
+	public String profile(HttpServletRequest request,Model model){
+		UserEntity userEntity = this.userService.getUserById((Integer) request.getSession().getAttribute("id"));
+		model.addAttribute("userEntity", userEntity);
+		return "profile";
 	}
 }
