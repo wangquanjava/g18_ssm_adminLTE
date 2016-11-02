@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.git.domain.AjaxJson;
 import com.git.domain.UserEntity;
-import com.git.exception.BusinessExceptionResolver;
+import com.git.exception.GlobeExceptionResolver;
 import com.git.service.UserService;
 
 @Controller
@@ -50,6 +50,12 @@ public class UserController {
 	public String update(UserEntity userEntity,HttpServletRequest request) throws Exception{
 		this.userService.update(userEntity);
 		return "redirect:/pageController/profile";
+	}
+	
+	@RequestMapping("getUser")
+	public ResponseEntity<UserEntity> getUser(int id){
+		UserEntity userEntity = this.userService.getUserById(id);
+		return ResponseEntity.status(200).body(userEntity);
 	}
 	
 }

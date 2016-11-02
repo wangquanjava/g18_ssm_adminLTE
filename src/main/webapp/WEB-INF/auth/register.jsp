@@ -39,7 +39,7 @@
 
     <form action="${webRoot }/userController/add" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Full name" name="username">
+        <input type="text" class="form-control" placeholder="userId" name="userId">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

@@ -7,6 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mchange.lang.IntegerUtils;
+
 /*
  * 登录拦截器
  */
@@ -26,8 +28,8 @@ public class LoginInteceptor implements HandlerInterceptor {
 		}
 		
 		//登录用户
-		String username = (String) request.getSession().getAttribute("username");
-		if (StringUtils.isNotBlank(username)) {
+		Integer id = (Integer) request.getSession().getAttribute("id");
+		if (id!=null) {
 			return true;
 		}
 		

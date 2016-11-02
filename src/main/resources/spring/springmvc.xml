@@ -56,5 +56,8 @@
 	</bean>
 	
 	<!-- 全局异常类 -->
-	<bean class="com.git.exception.BusinessExceptionResolver" />
+	<bean class="com.git.exception.GlobeExceptionResolver" />
+	
+	<!-- 文件上传部分 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 </beans>
