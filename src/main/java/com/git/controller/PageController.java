@@ -30,13 +30,20 @@ public class PageController {
 	public String register(){
 		return "auth/register";
 	}
+	/**
+	 * 用于进入管理界面
+	 */
+	@RequestMapping("manager-import")
+	public String manager(){
+		return "manager-import";
+	}
 	
 	/**
 	 * 进入主页
 	 */
 	@RequestMapping("/index")
 	public String main(HttpServletRequest request,Model model){
-		UserEntity userEntity = this.userService.getUserByUsername((String) request.getSession().getAttribute("username"));
+		UserEntity userEntity = this.userService.getUserById((Integer) request.getSession().getAttribute("id"));
 		model.addAttribute("userEntity", userEntity);
 		return "index";
 	}

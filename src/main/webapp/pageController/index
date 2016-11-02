@@ -1,0 +1,2 @@
+这个文件用来给web.xml中<welcome-file-list>起掩饰作用的，
+因为<welcome-file-list>判断是否有主页的时候，springMVC还没起来。所以会认为是没有，所以这里创建一个假的。

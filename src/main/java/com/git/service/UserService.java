@@ -1,5 +1,7 @@
 package com.git.service;
 
+import java.util.List;
+
 import com.git.domain.UserEntity;
 
 public interface UserService {
@@ -8,10 +10,10 @@ public interface UserService {
 
 	boolean check(UserEntity userEntity);
 
-	UserEntity getUserByUsername(String username);
-
 	UserEntity getUserById(Integer attribute);
 
 	void update(UserEntity userEntity);
+
+	void addAll(List<UserEntity> userEntities);
 
 }

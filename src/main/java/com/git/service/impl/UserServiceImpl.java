@@ -1,5 +1,7 @@
 package com.git.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +29,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserEntity getUserByUsername(String username) {
-		return this.userMapper.selectOne(new UserEntity(null, username, null, null));
-	}
-
-	@Override
 	public UserEntity getUserById(Integer id) {
 		UserEntity userEntity = this.userMapper.selectByPrimaryKey(id);
 		return userEntity;
@@ -40,6 +37,13 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void update(UserEntity userEntity) {
 		this.userMapper.updateByPrimaryKeySelective(userEntity);
+	}
+
+	@Override
+	public void addAll(List<UserEntity> userEntities) {
+		for (UserEntity userEntity : userEntities) {
+			this.userMapper.insertSelective(userEntity);
+		}
 	}
 
 
