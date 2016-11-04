@@ -23,9 +23,9 @@ public class UserController {
 	
 	@RequestMapping(value = "check",method=RequestMethod.POST)
 	public String check(UserEntity userEntity,Model model,HttpServletRequest request){
-		boolean success = this.userService.check(userEntity);
-		if (success) {
-			request.getSession().setAttribute("id", userEntity.getId());
+		UserEntity temp = this.userService.check(userEntity);
+		if (temp!=null) {
+			request.getSession().setAttribute("id", temp.getId());
 			return "redirect:/pageController/index";
 		}else{
 			model.addAttribute("msg","用户名或密码错误");

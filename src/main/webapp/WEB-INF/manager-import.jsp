@@ -32,9 +32,7 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                 <input type="file" multiple="false" name="fileInput" id="fileInput">
-
-                  <p class="help-block">上传格式正确的excel</p>
+                 <input type="file" multiple="false" name="fileInput" id="fileInput" />
                 </div>
               </div>
               <!-- /.box-body -->
@@ -58,7 +56,7 @@
 <script src="${webRoot }/plugins/uploadifive/jquery.uploadifive.js"></script>
 <link rel="stylesheet" href="${webRoot}/plugins/uploadifive/uploadifive.css">
 <script>
-	  	$(".maneger-import").parentsUntil(".sidebar-menu").andSelf().filter("li").addClass("active");
+	  	$(".manager-import").parentsUntil(".sidebar-menu").andSelf().filter("li").addClass("active");
 //	 	上传队列所有文件
 		$("#submit").click(function() {
 			$("#fileInput").uploadifive('upload');
@@ -68,8 +66,10 @@
 			uploadScript:'${webRoot}/managerController/uploadFile',
 			auto:false,
 			fileObjName:'fileFieldName',
+			buttonText:"选择文件",
 			onUploadComplete:function(file, data, response){
 				alert(JSON.parse(data).msg);
+				this.uploadifive("clearQueue");
 			}
 		});
  </script>

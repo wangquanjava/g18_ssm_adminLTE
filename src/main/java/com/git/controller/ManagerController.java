@@ -35,17 +35,17 @@ public class ManagerController {
 	private String uploadFolder;
 	
 	@RequestMapping(value="/uploadFile",method = RequestMethod.POST)
-	public ResponseEntity<AjaxJson> uploadFile(@RequestParam("fileFieldName") MultipartFile multipartFile) throws Exception{
-//		String filename = multipartFile.getOriginalFilename();
-		
-//		//保存文件
-//		multipartFile.transferTo(new File(uploadFolder+filename));
-		
-		//导入到数据库
-		List<UserEntity> userEntities = this.trace(multipartFile.getInputStream());
-		this.userService.addAll(userEntities);
-		
-		return ResponseEntity.status(HttpStatus.OK).body(new AjaxJson(true,"导入成功",null));
+	public ResponseEntity<AjaxJson> uploadFile(@RequestParam("fileFieldName") MultipartFile multipartFile){
+		try {
+			//导入到数据库
+			List<UserEntity> userEntities = this.trace(multipartFile.getInputStream());
+			this.userService.addAll(userEntities);
+			
+			return ResponseEntity.status(HttpStatus.OK).body(new AjaxJson(true,"导入成功",null));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(new AjaxJson(true,"导入失败",null));
 	}
 	
 	

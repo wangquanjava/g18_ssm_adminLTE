@@ -41,7 +41,7 @@ public class PageController {
 	/**
 	 * 进入主页
 	 */
-	@RequestMapping("/index")
+	@RequestMapping("index")
 	public String main(HttpServletRequest request,Model model){
 		UserEntity userEntity = this.userService.getUserById((Integer) request.getSession().getAttribute("id"));
 		model.addAttribute("userEntity", userEntity);
@@ -50,7 +50,7 @@ public class PageController {
 	/**
 	 * 进入个人页面
 	 */
-	@RequestMapping("/profile")
+	@RequestMapping("profile")
 	public String profile(HttpServletRequest request,Model model){
 		UserEntity userEntity = this.userService.getUserById((Integer) request.getSession().getAttribute("id"));
 		model.addAttribute("userEntity", userEntity);
