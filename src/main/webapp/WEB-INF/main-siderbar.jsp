@@ -50,8 +50,8 @@
           </a>
           
           <ul class="treeview-menu">
-            <li class="maneger-import">
-            	<a href="${webRoot }/pageController/maneger-import"><i class="fa fa-circle-o"></i>学生信息导入</a>
+            <li class="manager-import">
+            	<a href="${webRoot }/pageController/manager-import"><i class="fa fa-circle-o"></i>学生信息导入</a>
             </li>
           </ul>
         </li>

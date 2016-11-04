@@ -8,7 +8,7 @@ public interface UserService {
 
 	void add(UserEntity userEntity) throws Exception;
 
-	boolean check(UserEntity userEntity);
+	UserEntity check(UserEntity userEntity);
 
 	UserEntity getUserById(Integer attribute);
 
