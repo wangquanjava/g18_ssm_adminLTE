@@ -42,11 +42,12 @@
 		<property name="jdbcUrl" value="${jdbc.url}"></property>
 		<property name="user" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-		<!-- 池最小、最大、最大空闲时间(秒)、检查池中空闲的频率(秒) -->
+		<!-- 池最小、最大、最大空闲时间(秒)、检查池中空闲的频率(秒)、链接超时时间 -->
 		<property name="minPoolSize" value="${jdbc.minPoolSize}" /> 
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" /> 
 		<property name="maxIdleTime" value="${jdbc.maxIdleTime}" /> 
 		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" /> 
+		<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}" /> 
 	</bean>
 
 	<!-- 配置sqlSessionFactory -->
